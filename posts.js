@@ -3,18 +3,26 @@ let userPosts = document.getElementById('userPosts');
 
 function printUsersPosts(myData) {
     userPosts.innerHTML = `
-    <div class="d-flex align-items-start justify-content-start">
+    <div class="d-flex align-items-start justify-content-start mb-3">
         <img src="${myData[0].owner.picture}" alt="${myData[0].owner.firstName}" style="width:150px;height:150px;border-radius:50%;border:1px solid red" class="img-fluid">
     </div>`;
     myData.map(item => {
         userPosts.innerHTML += `
-        <div class="col-md-8 col-12">
+        <div class="col-md-4 col-12 mt-2 mb-2">
+        <div class="card card-posts">
         <div class="card-body">
-                <h6 class="date">${item.publishDate}</h6>
-                <p class="card-title">${item.text}</p>
-                <p class="tags">${item.tags.join('<br/>')}</p>
-                <span class="likes">${item.likes}</span>
-                <a href="post-detail.html?pid=${item.id}" class="btn btn-dark">Click Me</a>
+        <h6 class="date" style="font-size:14px">Published Date - ${item.publishDate}</h6>
+        <div class="d-flex align-item-center justify-conten-center">
+        <p class="card-title"><strong>${item.text}</strong></p>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+        <p class="tags p-0 m-0" style="font-size:14px"><strong>Tags :</strong> #${item.tags.join(' #')}</p>
+        <span class="likes" style="font-size:14px"><strong>Likes :</strong> ${item.likes}</span>
+        </div>
+        </div>
+        <div class="card-footer d-flex flex-column align-items-center" style="background:#fff;border:none">
+        <a href="post-detail.html?pid=${item.id}" class="btn btn-dark">Click Me</a>
+        </div>
         </div>
     </div>
         `;
