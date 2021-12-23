@@ -33,7 +33,7 @@ function loadMore() {
             datam.map(item => {
                 myData.push(item)
             })
-            incrementLimit(myData);
+            incrementLimit();
         }
     });
     let params = "?page=" + page + "&limit=50";
@@ -44,7 +44,7 @@ function loadMore() {
 }
 
 
-function incrementLimit(dataList) {
+function incrementLimit(dataList = myData) {
     dataList.slice(limit, limit + 6).map((item) => {
         demoDiv.innerHTML += `
         <div class="col-md-4 mt-2 mb-2">
@@ -56,7 +56,7 @@ function incrementLimit(dataList) {
         </div>
         <div class="card-body">
             <div class="d-flex align-items-center justify-content-center">
-            <h1 class="fName">${item.firstName} ${item.lastName}</h1>
+            <h4 class="fName">${item.firstName} ${item.lastName}</h4>
             </div>
             <div class="d-flex align-items-center justify-content-center">
             <a href="posts.html?uid=${item.id}" class="btn btn-danger">See Posts</a>
