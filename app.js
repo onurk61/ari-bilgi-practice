@@ -7,8 +7,8 @@ var myData = [];
 
 function loadMore() {
     let xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', function (e) {
-        if (this.readyState === 4) {
+    xhr.addEventListener('load', function(e) {
+        if (this.status === 200) {
             let datam = JSON.parse(this.responseText).data;
             // let firstSixData = datam.slice(0,6);
             // firstSixData.map(item => {
@@ -34,6 +34,11 @@ function loadMore() {
                 myData.push(item)
             })
             incrementLimit();
+        } else if (this.status === 404) {
+            Swal.fire({
+                template: '#my-template'
+            });
+            document.getElementById('myButton').disabled = true;
         }
     });
     let params = "?page=" + page + "&limit=50";

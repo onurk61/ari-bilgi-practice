@@ -1,0 +1,22 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "This is a project from Ari-Bilgi Js course with İlker Turan.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onurk61/ari-bilgi-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onurk61/ari-bilgi-practice/issues"
+  },
+  "homepage": "https://github.com/onurk61/ari-bilgi-practice#readme",
+  "dependencies": {
+    "sweetalert2": "^11.3.1"
+  }
+}
